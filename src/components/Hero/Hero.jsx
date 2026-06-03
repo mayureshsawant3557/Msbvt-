@@ -151,7 +151,7 @@ const CarouselSection = ({ title, children, titleColor = "text-[#005ea2]", showS
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto my-6 px-4">
+    <div className="w-full max-w-[1536px] mx-auto my-6 px-4">
       {/* Title with styled border */}
       <div className="border border-gray-200 rounded-md overflow-hidden bg-white mb-4">
         <div className="bg-gray-50 border-b border-gray-200 px-4 py-3">
@@ -218,7 +218,7 @@ const CarouselSection = ({ title, children, titleColor = "text-[#005ea2]", showS
 };
 
 const SuccessStoryCard = ({ item }) => (
-  <div className="flex-none w-96 snap-start bg-white border border-gray-200 rounded-md p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
+  <div className="flex-none snap-start bg-white border border-gray-200 rounded-md p-4 flex items-center gap-4 hover:shadow-md transition-shadow" style={{ width: 'calc(33.333% - 10.66px)' }}>
     <div className="w-24 h-24 flex-shrink-0 bg-white rounded overflow-hidden flex items-center justify-center p-1">
       <img src={item.image} alt={item.name} className="max-w-full max-h-full object-contain" />
     </div>
@@ -232,7 +232,7 @@ const SuccessStoryCard = ({ item }) => (
 );
 
 const EducationCard = ({ item }) => (
-  <div className="flex-none w-96 snap-start bg-white border border-gray-200 rounded-md p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
+  <div className="flex-none snap-start bg-white border border-gray-200 rounded-md p-4 flex items-center gap-4 hover:shadow-md transition-shadow" style={{ width: 'calc(33.333% - 10.66px)' }}>
     <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center p-1">
       <img src={item.image} alt={item.title} className="max-w-full max-h-full object-contain" />
     </div>
@@ -248,7 +248,7 @@ const EducationCard = ({ item }) => (
 );
 
 const OpportunityCard = ({ item }) => (
-  <div className="flex-none w-96 snap-start bg-white border border-gray-200 rounded-md p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
+  <div className="flex-none snap-start bg-white border border-gray-200 rounded-md p-4 flex items-center gap-4 hover:shadow-md transition-shadow" style={{ width: 'calc(33.333% - 10.66px)' }}>
     <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center p-1">
       <img src={item.image} alt={item.title} className="max-w-full max-h-full object-contain" />
     </div>
@@ -296,7 +296,7 @@ const Hero = () => {
         ))}
       </CarouselSection>
 
-      <div className="w-full max-w-7xl mx-auto my-6 px-4">
+      <div className="w-full max-w-[1536px] mx-auto my-6 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {SectionData.stats.map(stat => (
             <StatCard key={stat.id} item={stat} />
