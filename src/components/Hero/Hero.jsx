@@ -1,17 +1,30 @@
-import React from 'react';
 import HeroCarousels from './HeroCarousels';
 import HeroStats from './HeroStats';
+import HeroBody from './Herobody';
+import RelatedVideos from './RelatedVideos';
 
 const Hero = () => {
+
   return (
+
     <div className="w-full bg-gray-50 py-8">
-      {/* 
-        You can easily add your SignIn or other options here, above the Carousels!
-        e.g., <SignIn /> 
-      */}
+
+      {/* Your Section */}
+
+      <HeroBody />
+
+      {/* Related Videos */}
+
+      <RelatedVideos />
+
+      {/* Existing Team Sections */}
+
       <HeroCarousels />
+
       <HeroStats />
+
     </div>
+
   );
 };
 
