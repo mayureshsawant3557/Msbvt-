@@ -114,27 +114,25 @@ export const CarouselSection = ({ title, children, titleColor = "text-[#005ea2]"
   );
 };
 
-export const SuccessStoryCard = ({ item }) => (
+export const CarouselCard = ({ item }) => (
   <div className="flex-none snap-start bg-white border border-gray-200 rounded-md p-4 flex items-center gap-4 hover:shadow-md transition-shadow" style={{ width: 'calc(33.333% - 10.66px)' }}>
     <div className="w-24 h-24 flex-shrink-0 bg-white rounded overflow-hidden flex items-center justify-center p-1">
-      <img src={item.image} alt={item.name} className="max-w-full max-h-full object-contain" />
+      <img src={item.image} alt={item.name || item.title} className="max-w-full max-h-full object-contain" />
     </div>
     <div className="flex-1 min-w-0 text-center">
-      <h3 className="text-xs font-semibold text-gray-800 uppercase">{item.name}</h3>
-      <p className="text-xs text-gray-500 mt-1 leading-relaxed">
-        {item.description} {item.year}
-      </p>
-    </div>
-  </div>
-);
+      {/* Name (for success stories) or Title (for education/opportunities) */}
+      <h3 className="text-sm font-semibold text-gray-800 leading-snug uppercase">
+        {item.name || item.title}
+      </h3>
 
-export const EducationCard = ({ item }) => (
-  <div className="flex-none snap-start bg-white border border-gray-200 rounded-md p-4 flex items-center gap-4 hover:shadow-md transition-shadow" style={{ width: 'calc(33.333% - 10.66px)' }}>
-    <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center p-1">
-      <img src={item.image} alt={item.title} className="max-w-full max-h-full object-contain" />
-    </div>
-    <div className="flex-1 min-w-0 text-center">
-      <h3 className="text-sm font-semibold text-gray-800">{item.title}</h3>
+      {/* Description + Year (only success stories have these) */}
+      {item.description && (
+        <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+          {item.description} {item.year}
+        </p>
+      )}
+
+      {/* Link (only some education cards have this) */}
       {item.link && (
         <a href={item.link.url} className="text-xs text-blue-600 hover:underline block mt-1">
           {item.link.text}
@@ -144,41 +142,30 @@ export const EducationCard = ({ item }) => (
   </div>
 );
 
-export const OpportunityCard = ({ item }) => (
-  <div className="flex-none snap-start bg-white border border-gray-200 rounded-md p-4 flex items-center gap-4 hover:shadow-md transition-shadow" style={{ width: 'calc(33.333% - 10.66px)' }}>
-    <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center p-1">
-      <img src={item.image} alt={item.title} className="max-w-full max-h-full object-contain" />
-    </div>
-    <div className="flex-1 min-w-0 text-center">
-      <h3 className="text-sm font-semibold text-gray-800 leading-snug">{item.title}</h3>
-    </div>
-  </div>
-);
-
 const HeroCarousels = () => {
   return (
     <>
       <CarouselSection title="Success Stories of Board" showSeeMore={true}>
         {SectionData.successStories.map(story => (
-          <SuccessStoryCard key={story.id} item={story} />
+          <CarouselCard key={story.id} item={story} />
         ))}
       </CarouselSection>
 
       <CarouselSection title="Higher Education Opportunities" titleColor="text-[#007baf]">
         {SectionData.higherEducation.map(edu => (
-          <EducationCard key={edu.id} item={edu} />
+          <CarouselCard key={edu.id} item={edu} />
         ))}
       </CarouselSection>
 
       <CarouselSection title="Apprenticeship, Internship and Employment Opportunities" titleColor="text-[#007baf]">
         {SectionData.opportunities.map(opp => (
-          <OpportunityCard key={opp.id} item={opp} />
+          <CarouselCard key={opp.id} item={opp} />
         ))}
       </CarouselSection>
 
       <CarouselSection title="Entrepreneurship Opportunities" titleColor="text-[#007baf]">
         {SectionData.entrepreneurshipOpportunities.map(opp => (
-          <OpportunityCard key={opp.id} item={opp} />
+          <CarouselCard key={opp.id} item={opp} />
         ))}
       </CarouselSection>
     </>
