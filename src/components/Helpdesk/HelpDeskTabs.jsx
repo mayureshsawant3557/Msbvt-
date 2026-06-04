@@ -1,6 +1,10 @@
 import { useState } from "react";
 import GrievanceRedressal from "./GrievanceRedressal/GrievanceRedressal";
 import FAQ from "./FAQ/FAQ";
+import HeadOffice from "./HeadOffice/HeadOffice";
+import RegionalOffice from "./RegionalOffice/RegionalOffice";
+import DistrictOffice from "./DistrictOffice/DistrictOffice";
+
 const tabs = [
   "Head Office",
   "Regional Office",
@@ -44,29 +48,9 @@ export default function HelpdeskTabs() {
 
         {/* Content Area */}
         <div className="min-h-[500px] p-6 bg-white">
-          {activeTab === "Head Office" && (
-            <div>
-              <h2 className="text-xl font-semibold">
-                Head Office Content
-              </h2>
-            </div>
-          )}
-
-          {activeTab === "Regional Office" && (
-            <div>
-              <h2 className="text-xl font-semibold">
-                Regional Office Content
-              </h2>
-            </div>
-          )}
-
-          {activeTab === "District Office" && (
-            <div>
-              <h2 className="text-xl font-semibold">
-                District Office Content
-              </h2>
-            </div>
-          )}
+          {activeTab === "Head Office" && <HeadOffice />}
+          {activeTab === "Regional Office" && <RegionalOffice />}
+          {activeTab === "District Office" && <DistrictOffice />}
 
           {activeTab === "Lokshahi Divas" && (
             <div>
@@ -87,7 +71,7 @@ export default function HelpdeskTabs() {
           {activeTab === "Frequently Asked Question" && (
             <div>
               <h2 className="text-xl font-semibold">
-                <FAQ /> {/* Import and use the FAQ component here */}
+                <FAQ />
               </h2>
             </div>
           )}
@@ -95,7 +79,7 @@ export default function HelpdeskTabs() {
           {activeTab === "Grievance Redressal" && (
             <div>
               <h2 className="text-xl font-semibold">
-                <GrievanceRedressal /> {/* Import and use the GrievanceRedressal component here */}
+                <GrievanceRedressal />
               </h2>
             </div>
           )}
