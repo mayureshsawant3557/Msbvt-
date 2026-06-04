@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ;
+=======
+import React from 'react';
+>>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
 import { SectionData } from './HeroData';
 
 export const StatCard = ({ item }) => {

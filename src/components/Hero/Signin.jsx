@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 function Signin() {
+=======
+import { useState } from "react"
+import SignInPopup from './SignInPopup'
+import RegisterModal from './RegisterModal'
+
+function Signin() {
+  const [showSignIn, setShowSignIn] = useState(false)
+  const [showRegister, setShowRegister] = useState(false)
+
+>>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
   return (
     <div className="bg-white rounded-2xl shadow-md p-4 mt-2">
 
@@ -14,7 +25,11 @@ function Signin() {
       <div className="grid grid-cols-2 items-center mb-4">
         <p className="text-center text-[18px] text-gray-700 font-semibold">Existing User ?</p>
         <div className="flex justify-center">
+<<<<<<< HEAD
           <button className="bg-orange-700 hover:bg-orange-800 text-white px-5 py-1.5 rounded-full text-[14px] font-semibold transition-colors">
+=======
+          <button onClick={() => setShowSignIn(true)} className="bg-orange-700 hover:bg-orange-800 text-white px-5 py-1.5 rounded-full text-[14px] font-semibold transition-colors">
+>>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
             Sign In
           </button>
         </div>
@@ -24,7 +39,11 @@ function Signin() {
       <div className="grid grid-cols-2 items-center mb-6">
         <p className="text-center text-[18px] text-gray-700 font-semibold">Not Registered ?</p>
         <div className="flex justify-center">
+<<<<<<< HEAD
           <button className="bg-orange-700 hover:bg-orange-800 text-white px-4 py-1.5 rounded-full text-[14px] font-semibold transition-colors">
+=======
+          <button onClick={() => setShowRegister(true)} className="bg-orange-700 hover:bg-orange-800 text-white px-4 py-1.5 rounded-full text-[14px] font-semibold transition-colors">
+>>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
             Register Here
           </button>
         </div>
@@ -36,6 +55,15 @@ function Signin() {
         <span className="text-blue-800 ml-2 cursor-pointer hover:underline font-semibold">Click Here</span>
       </div>
 
+<<<<<<< HEAD
+=======
+      {/* Sign In Popup */}
+      <SignInPopup isOpen={showSignIn} onClose={() => setShowSignIn(false)} />
+
+      {/* Register Modal */}
+      <RegisterModal isOpen={showRegister} onClose={() => setShowRegister(false)} />
+
+>>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
     </div>
   )
 }

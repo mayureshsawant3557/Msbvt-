@@ -8,7 +8,10 @@ import {
 } from "react-icons/fa";
 import Marquee from "react-fast-marquee";
 import { FaChevronDown } from "react-icons/fa";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+>>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
 
 const navLinks = [
   { name: "Home" },
@@ -46,6 +49,7 @@ const navLinks = [
 
   { name: "STEP" },
   { name: "Unauthorized Institutes" },
+<<<<<<< HEAD
   {
   name: "Helpdesk",
   arrow: true,
@@ -60,6 +64,14 @@ const navLinks = [
     },
   ],
 }
+=======
+  { name: "Helpdesk", 
+    arrow: true,
+    submenu: [
+        "Help Desk",
+        "RTI",
+],},
+>>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
 ];
 
 export default function Header() {
@@ -162,6 +174,7 @@ export default function Header() {
       {item.submenu && (
         <div className="absolute left-0 top-full z-50 hidden group-hover:block">
           <div className="mt-2 w-64 bg-white text-gray-800 shadow-lg rounded-md py-2">
+<<<<<<< HEAD
            {item.submenu.map((subItem) => (
   <Link
     key={subItem.title}
@@ -171,6 +184,17 @@ export default function Header() {
     {subItem.title}
   </Link>
 ))}
+=======
+            {item.submenu.map((subItem) => (
+              <a
+                key={subItem}
+                href="#"
+                className="block px-4 py-3 hover:bg-gray-100 transition"
+              >
+                {subItem}
+              </a>
+            ))}
+>>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
           </div>
         </div>
       )}
