@@ -220,17 +220,29 @@ const handleTrack = () => {
                 />
 
               <div className="mt-4">
-                <input
-                type="file"
-                onChange={handleFileUpload}
-                className="border p-2 rounded"
-                />  
-                {uploadedFile && (
-                <p className="text-green-600 text-sm mt-2">
-                    Uploaded: {uploadedFile.name}
+                <p className="text-sm font-medium mb-2">
+                  Upload Supporting Document
                 </p>
-                )}            
-                </div>
+
+                <label className="cursor-pointer">
+                  <input
+                    type="file"
+                    onChange={handleFileUpload}
+                    className="hidden"
+                  />
+
+                  <span className="inline-block bg-gray-200 border border-gray-400 px-4 py-2 rounded text-sm hover:bg-gray-300">
+                    Choose File
+                  </span>
+                </label>
+
+                {uploadedFile && (
+                  <span className="ml-3 text-sm text-green-600">
+                    {uploadedFile.name}
+                  </span>
+                )}
+              </div>
+                
 
               <div className="flex justify-center gap-4 mt-6">
                 <button

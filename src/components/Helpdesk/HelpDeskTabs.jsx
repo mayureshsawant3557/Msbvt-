@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GrievanceRedressal from "./GrievanceRedressal/GrievanceRedressal";
+import FAQ from "./FAQ/FAQ";
 const tabs = [
   "Head Office",
   "Regional Office",
@@ -86,7 +87,7 @@ export default function HelpdeskTabs() {
           {activeTab === "Frequently Asked Question" && (
             <div>
               <h2 className="text-xl font-semibold">
-                FAQ Content
+                <FAQ /> {/* Import and use the FAQ component here */}
               </h2>
             </div>
           )}
