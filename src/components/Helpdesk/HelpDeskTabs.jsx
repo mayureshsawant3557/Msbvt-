@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GrievanceRedressal from "./GrievanceRedressal/GrievanceRedressal";
 import FAQ from "./FAQ/FAQ";
+import VisitingHours from "./VisitingHours/VisitingHours";
 const tabs = [
   "Head Office",
   "Regional Office",
@@ -77,11 +78,7 @@ export default function HelpdeskTabs() {
           )}
 
           {activeTab === "Visiting Hours" && (
-            <div>
-              <h2 className="text-xl font-semibold">
-                Visiting Hours Content
-              </h2>
-            </div>
+            <VisitingHours onTabSwitch={setActiveTab} />
           )}
 
           {activeTab === "Frequently Asked Question" && (
