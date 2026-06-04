@@ -5,6 +5,7 @@ import HeadOffice from "./HeadOffice/HeadOffice";
 import RegionalOffice from "./RegionalOffice/RegionalOffice";
 import DistrictOffice from "./DistrictOffice/DistrictOffice";
 import VisitingHours from "./VisitingHours/VisitingHours";
+import LokshahiDivas from "./LokshahiDivas/LokshahiDivas";
 const tabs = [
   "Head Office",
   "Regional Office",
@@ -53,11 +54,7 @@ export default function HelpdeskTabs() {
           {activeTab === "District Office" && <DistrictOffice />}
 
           {activeTab === "Lokshahi Divas" && (
-            <div>
-              <h2 className="text-xl font-semibold">
-                Lokshahi Divas Content
-              </h2>
-            </div>
+            <LokshahiDivas />
           )}
 
           {activeTab === "Visiting Hours" && (

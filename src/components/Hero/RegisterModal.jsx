@@ -24,9 +24,7 @@ function RegisterModal({ isOpen, onClose }) {
       >
         {/* Header */}
         <div className="text-center mb-6">
-          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-            <FaUserPlus className="text-blue-700 text-2xl" />
-          </div>
+
 
           <h2 className="text-2xl font-bold text-blue-900">
             New Registration
