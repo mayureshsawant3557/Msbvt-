@@ -4,7 +4,7 @@ import FAQ from "./FAQ/FAQ";
 import HeadOffice from "./HeadOffice/HeadOffice";
 import RegionalOffice from "./RegionalOffice/RegionalOffice";
 import DistrictOffice from "./DistrictOffice/DistrictOffice";
-
+import VisitingHours from "./VisitingHours/VisitingHours";
 const tabs = [
   "Head Office",
   "Regional Office",
@@ -61,11 +61,7 @@ export default function HelpdeskTabs() {
           )}
 
           {activeTab === "Visiting Hours" && (
-            <div>
-              <h2 className="text-xl font-semibold">
-                Visiting Hours Content
-              </h2>
-            </div>
+            <VisitingHours onTabSwitch={setActiveTab} />
           )}
 
           {activeTab === "Frequently Asked Question" && (
