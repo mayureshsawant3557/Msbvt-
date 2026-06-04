@@ -1,94 +1,91 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
-  FaVolumeUp,
+  FaBars,
+  FaBullhorn,
+  FaChevronDown,
   FaPause,
   FaPhoneAlt,
-  FaBars,
   FaTimes,
+  FaVolumeUp,
 } from "react-icons/fa";
-import Marquee from "react-fast-marquee";
-import { FaChevronDown } from "react-icons/fa";
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-=======
->>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
 
 const navLinks = [
-  { name: "Home" },
+  { name: "Home", path: "/" },
   {
     name: "About",
-    arrow: true,
     submenu: [
-      "Board",
-      "Vision",
-      "Mission",
-      "Values",
-      "Objectives",
-      "Goals",
-      "Organization Structure",
-      "Governing Board",
-      "Governing Council",
-      "Office Bearers",
+      { title: "Board", path: "#" },
+      { title: "Vision", path: "#" },
+      { title: "Mission", path: "#" },
+      { title: "Values", path: "#" },
+      { title: "Objectives", path: "#" },
+      { title: "Goals", path: "#" },
+      { title: "Organization Structure", path: "#" },
+      { title: "Governing Board", path: "#" },
+      { title: "Governing Council", path: "#" },
+      { title: "Office Bearers", path: "#" },
     ],
   },
-  { name: "Search", 
-    arrow: true,
-    submenu: [
-        "Institutes",
-        "Courses",],
-    },
-  { name: "Examination", 
-    arrow: true,
-    submenu: [
-        "Examination Circular",
-        "Examination Patter",
-        "Exam Timetable",
-        "Certificate Verification",
-    ],
-},
-
-  { name: "STEP" },
-  { name: "Unauthorized Institutes" },
-<<<<<<< HEAD
   {
-  name: "Helpdesk",
-  arrow: true,
-  submenu: [
-    {
-      title: "Helpdesk",
-      path: "/Helpdesk",
-    },
-    {
-      title: "RTI",
-      path: "/rti",
-    },
-  ],
-}
-=======
-  { name: "Helpdesk", 
-    arrow: true,
+    name: "Search",
     submenu: [
-        "Help Desk",
-        "RTI",
-],},
->>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
+      { title: "Institutes", path: "#" },
+      { title: "Courses", path: "#" },
+    ],
+  },
+  {
+    name: "Examination",
+    submenu: [
+      { title: "Examination Circular", path: "#" },
+      { title: "Examination Pattern", path: "#" },
+      { title: "Exam Timetable", path: "#" },
+      { title: "Certificate Verification", path: "#" },
+    ],
+  },
+  { name: "STEP", path: "#" },
+  { name: "Unauthorized Institutes", path: "#" },
+  {
+    name: "Helpdesk",
+    submenu: [
+      { title: "Help Desk", path: "/helpdesk" },
+      { title: "RTI", path: "#" },
+    ],
+  },
 ];
+
+const isInternalPath = (path) => path && path.startsWith("/");
+
+const NavItemLink = ({ item, className, children, onClick }) => {
+  if (isInternalPath(item.path)) {
+    return (
+      <Link to={item.path} className={className} onClick={onClick}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={item.path || "#"} className={className} onClick={onClick}>
+      {children}
+    </a>
+  );
+};
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      {/* Top Utility Bar */}
       <div className="bg-[#0D1B5E] text-white text-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
           <div className="flex items-center gap-4">
             <FaVolumeUp className="cursor-pointer" />
             <FaPause className="cursor-pointer" />
 
-            <button>A+</button>
-            <button>A</button>
-            <button>A-</button>
+            <button type="button">A+</button>
+            <button type="button">A</button>
+            <button type="button">A-</button>
 
             <select className="bg-transparent outline-none">
               <option className="text-black">English</option>
@@ -96,131 +93,131 @@ export default function Header() {
             </select>
           </div>
 
-          <button className="bg-red-600 px-3 py-1 rounded">
+          <button
+            type="button"
+            className="bg-red-600 px-3 py-1 rounded flex items-center gap-2"
+          >
+            <FaPhoneAlt size={12} />
             Helpline
           </button>
         </div>
       </div>
 
-      {/* Main Header */}
-      <div className="bg-white">
+      <header className="bg-white">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          {/* Left Logos */}
           <div className="flex items-center gap-4">
             <img
-              src="./public/bharat.png"
-              alt="Gov Logo"
+              src="/bharat.png"
+              alt="Government of India logo"
               className="w-24 h-24 object-contain"
             />
 
             <img
-              src="./public/maharashtra seal.png"
-              alt="Maharashtra Logo"
+              src="/maharashtra seal.png"
+              alt="Government of Maharashtra seal"
               className="w-24 h-24 object-contain"
             />
           </div>
 
-          {/* Center Text */}
           <div className="text-center flex-1 px-8">
-            <p className="text-sm text-gray-600">
-              Government of Maharashtra
-            </p>
+            <p className="text-sm text-gray-600">Government of Maharashtra</p>
 
             <h2 className="font-bold text-lg md:text-xl text-[#0D1B5E]">
               Skill, Employment, Entrepreneurship and Innovation Department
             </h2>
 
             <h1 className="font-bold text-xl md:text-2xl text-[#0D1B5E]">
-              Maharashtra State Board of Skill,
-              Vocational Education and Training
+              Maharashtra State Board of Skill, Vocational Education and
+              Training
             </h1>
           </div>
 
-          {/* Right Logo */}
-          <div>
-            <img
-              src="./public/msbvet logo.png"
-              alt="MSBVET"
-              className="w-24 h-24 object-contain"
-            />
-          </div>
+          <img
+            src="/msbvet logo.png"
+            alt="MSBVET logo"
+            className="w-24 h-24 object-contain"
+          />
         </div>
-      </div>
+      </header>
 
-      {/* Navbar */}
       <nav className="bg-[#0D1B5E] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
-            {/* Desktop Menu */}
             <ul className="hidden md:flex items-center gap-8">
-              <ul className="hidden md:flex items-center gap-8">
-  {navLinks.map((item) => (
-    <li
-      key={item.name}
-      className="relative group cursor-pointer"
-    >
-      <div className="flex items-center gap-1 hover:text-yellow-300 transition">
-        {item.name}
+              {navLinks.map((item) => (
+                <li key={item.name} className="relative group cursor-pointer">
+                  {item.submenu ? (
+                    <>
+                      <div className="flex items-center gap-1 hover:text-yellow-300 transition">
+                        {item.name}
+                        <FaChevronDown
+                          size={10}
+                          className="group-hover:rotate-180 transition-transform"
+                        />
+                      </div>
 
-        {item.arrow && (
-          <FaChevronDown
-            size={10}
-            className="group-hover:rotate-180 transition-transform"
-          />
-        )}
-      </div>
-
-      {/* Dropdown */}
-      {item.submenu && (
-        <div className="absolute left-0 top-full z-50 hidden group-hover:block">
-          <div className="mt-2 w-64 bg-white text-gray-800 shadow-lg rounded-md py-2">
-<<<<<<< HEAD
-           {item.submenu.map((subItem) => (
-  <Link
-    key={subItem.title}
-    to={subItem.path}
-    className="block px-4 py-3 hover:bg-gray-100 transition"
-  >
-    {subItem.title}
-  </Link>
-))}
-=======
-            {item.submenu.map((subItem) => (
-              <a
-                key={subItem}
-                href="#"
-                className="block px-4 py-3 hover:bg-gray-100 transition"
-              >
-                {subItem}
-              </a>
-            ))}
->>>>>>> 07e04b58171e30135cfb2fafdf8e5bfade5b726b
-          </div>
-        </div>
-      )}
-    </li>
-  ))}
-</ul>
+                      <div className="absolute left-0 top-full z-50 hidden group-hover:block">
+                        <div className="mt-2 w-64 bg-white text-gray-800 shadow-lg rounded-md py-2">
+                          {item.submenu.map((subItem) => (
+                            <NavItemLink
+                              key={subItem.title}
+                              item={subItem}
+                              className="block px-4 py-3 hover:bg-gray-100 transition"
+                            >
+                              {subItem.title}
+                            </NavItemLink>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <NavItemLink
+                      item={item}
+                      className="hover:text-yellow-300 transition"
+                    >
+                      {item.name}
+                    </NavItemLink>
+                  )}
+                </li>
+              ))}
             </ul>
 
-            {/* Mobile Menu Button */}
             <button
+              type="button"
               className="md:hidden"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen((open) => !open)}
+              aria-label="Toggle navigation"
             >
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
           </div>
 
-          {/* Mobile Menu */}
           {isOpen && (
             <ul className="md:hidden pb-4 space-y-3">
               {navLinks.map((item) => (
-                <li
-                  key={item}
-                  className="cursor-pointer hover:text-yellow-300"
-                >
-                  {item}
+                <li key={item.name}>
+                  <NavItemLink
+                    item={item}
+                    className="block cursor-pointer hover:text-yellow-300"
+                    onClick={() => !item.submenu && setIsOpen(false)}
+                  >
+                    {item.name}
+                  </NavItemLink>
+
+                  {item.submenu && (
+                    <div className="mt-2 ml-4 space-y-2 text-sm text-blue-100">
+                      {item.submenu.map((subItem) => (
+                        <NavItemLink
+                          key={subItem.title}
+                          item={subItem}
+                          className="block hover:text-yellow-300"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {subItem.title}
+                        </NavItemLink>
+                      ))}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
@@ -228,30 +225,27 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Announcement Bar */}
-      {/* Announcement Bar */}
-<div className="bg-orange-100 border-y">
-  <div className="max-w-7xl mx-auto flex items-center">
-    
-    <div className="bg-orange-500 text-white px-4 py-2 font-semibold shrink-0">
-      📢 Announcements
-    </div>
+      <div className="bg-orange-100 border-y">
+        <div className="max-w-7xl mx-auto flex items-center">
+          <div className="bg-orange-500 text-white px-4 py-2 font-semibold shrink-0 flex items-center gap-2">
+            <FaBullhorn size={14} />
+            Announcements
+          </div>
 
-    <div className="overflow-hidden flex-1 relative">
-      <div
-        className="whitespace-nowrap text-orange-700 font-medium py-2"
-        style={{
-          display: "inline-block",
-          animation: "marquee 20s linear infinite",
-        }}
-      >
-        Candidate Registration Started • Admission Process Open •
-        Examination Schedule Released • Verification Portal Active •
+          <div className="overflow-hidden flex-1 relative">
+            <div
+              className="whitespace-nowrap text-orange-700 font-medium py-2"
+              style={{
+                display: "inline-block",
+                animation: "marquee 20s linear infinite",
+              }}
+            >
+              Candidate Registration Started | Admission Process Open |
+              Examination Schedule Released | Verification Portal Active |
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-  </div>
-</div>
     </>
   );
 }

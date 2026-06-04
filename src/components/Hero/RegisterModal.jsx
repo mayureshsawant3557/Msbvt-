@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { FaUserPlus } from "react-icons/fa";
 
-// Dropdown options for user types
 const userTypes = [
   "Candidate",
-  "Staff/Management",
+  "Staff / Management",
   "Skill Development Institute (SDI)",
   "Promoting Organization",
 ];
@@ -11,73 +11,64 @@ const userTypes = [
 function RegisterModal({ isOpen, onClose }) {
   const [selectedType, setSelectedType] = useState("");
 
-  // Don't render anything if modal is closed
   if (!isOpen) return null;
 
   return (
-    /* Dark overlay - click outside closes modal */
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 
-                 animate-[fadeIn_0.3s_ease] p-4"
+      className="fixed inset-0 bg-black/50 flex items-center justify-center p-4"
       onClick={onClose}
     >
-      {/* Modal box - stop click from closing */}
       <div
-        className="bg-white rounded-xl shadow-2xl w-full max-w-md 
-                   animate-[scaleIn_0.3s_ease] overflow-hidden"
+        className="bg-white w-full max-w-md rounded-2xl shadow-xl p-6"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header bar */}
-        <div className="bg-[#0D1B5E] px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-           
-            <h2 className="text-white text-lg font-semibold">
-              New User Registration
-            </h2>
+        {/* Header */}
+        <div className="text-center mb-6">
+          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <FaUserPlus className="text-blue-700 text-2xl" />
           </div>
 
-          {/* Close button */}
-          <button
-            onClick={onClose}
-            className="bg-red-600 hover:bg-red-700 text-white w-8 h-8 
-                       rounded-full flex items-center justify-center 
-                       text-lg font-bold transition-colors"
-          >
-            ✕
-          </button>
+          <h2 className="text-2xl font-bold text-blue-900">
+            New Registration
+          </h2>
+
+          <p className="text-gray-500 text-sm mt-1">
+            Select your user type to continue
+          </p>
         </div>
 
-        {/* Body */}
-        <div className="px-6 py-8">
-          {/* Label */}
-          <label className="block text-gray-700 text-sm font-semibold mb-2">
-            Select User Type
+        {/* Dropdown */}
+        <div className="mb-5">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            User Type
           </label>
 
-          {/* Dropdown */}
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
-            className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 
-                       text-gray-700 text-base bg-white focus:border-blue-500 
-                       focus:outline-none transition-colors appearance-none
-                       cursor-pointer"
+            className="w-full border rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="" disabled>
-              -- Select User Type --
-            </option>
+            <option value="">Select User Type</option>
+
             {userTypes.map((type) => (
               <option key={type} value={type}>
                 {type}
               </option>
             ))}
           </select>
+        </div>
 
-          {/* Continue button */}
+        {/* Buttons */}
+        <div className="flex gap-3">
           <button
-            className="mt-6 w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white 
-                       py-3 rounded-lg text-base font-semibold 
-                       transition-colors"
+            onClick={onClose}
+            className="flex-1 border border-gray-300 py-3 rounded-xl font-medium"
+          >
+            Cancel
+          </button>
+
+          <button
+            className="flex-1 bg-blue-900 hover:bg-blue-800 text-white py-3 rounded-xl font-medium"
           >
             Continue
           </button>

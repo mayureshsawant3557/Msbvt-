@@ -20,11 +20,10 @@ const handleChange = (e) => {
 };
 
 const handleRegister = () => {
-  const grievanceId =
-    "GRV" + Math.floor(100000 + Math.random() * 900000);
-
   const grievances =
     JSON.parse(localStorage.getItem("grievances")) || [];
+  const grievanceId =
+    "GRV" + String(grievances.length + 1).padStart(6, "0");
 
   const newGrievance = {
   grievanceId,

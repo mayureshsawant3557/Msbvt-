@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { FaChevronLeft, FaChevronRight, } from 'react-icons/fa';
 
 const videos = [
@@ -40,24 +40,6 @@ const videos = [
 
 function RelatedVideos() {
   const scrollRef = useRef(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  const handleScroll = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      const maxScroll = scrollWidth - clientWidth;
-      const progress = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
-      setScrollProgress(progress);
-    }
-  };
-
-  useEffect(() => {
-    const ref = scrollRef.current;
-    if (ref) {
-      ref.addEventListener('scroll', handleScroll);
-      return () => ref.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
